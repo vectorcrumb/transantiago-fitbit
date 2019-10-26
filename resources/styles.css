@@ -1,0 +1,21 @@
+.background {
+  viewport-fill: white;
+}
+
+#demotext {
+  fill: black;
+  font-size: 32;
+  font-family: System-Regular;
+  font-weight: bold;
+  text-anchor: middle;
+  text-length: 99;
+}
+
+.num_field {
+  fill: black;
+  font-size: 32;
+  font-family: System-Regular;
+  font-weight: bold;
+  text-anchor: middle;
+  text-length: 99;
+}
