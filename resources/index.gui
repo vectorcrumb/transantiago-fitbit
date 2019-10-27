@@ -1,5 +1,36 @@
 <svg class="background">
-  <!-- <text id="demotext" x="50%" y="50%+15">Hello World!</text> -->
-  <text class="num_field" id="lati" x="50%" y="40%">Latitude</text>
-  <text class="num_field" id="long" x="50%" y="60%">Longitude</text>
+
+  <!-- Define a TILE symbol -->
+  <symbol id="tile-symbol" focusable="false" pointer-events="visible" system-events="all">
+    <!-- Define background rectangle -->
+    <rect id="tile-background" height="100%" />
+
+    <!-- Line 1: Bus Code and Destination -->
+    <text id="code_dest" font-size="40" x="5" y="40" fill="white">000-Santiago</text>
+  
+    <!-- Line 2: Estimated time and distance -->
+    <text id="minutes" font-size="30" x="5" y="78" fill="white">00 minutes</text>
+    <text id="distance" font-size="30" x="100%-120" y="78" fill="white">00 metros</text>
+
+    <!-- Divider line -->
+    <rect id="tile-divider" height="2" />
+  </symbol>
+
+  <textarea id="status" class="status">Status message displayed here!</textarea>
+
+  <!-- Define tile list -->
+  <use id="busList" href="#tile-list" height="100%" width="100%">
+    <var id="reorder-enabled" value="0" />
+    <var id="separator-height-bottom" value="2" />
+    <use id="bus-0" href="#tile-list-item" class="item">
+      <use href="#tile-symbol" />
+    </use>
+    <use id="bus-1" href="#tile-list-item" class="item">
+      <use href="#tile-symbol" />
+    </use>
+    <use id="bus-2" href="#tile-list-item" class="item">
+      <use href="#tile-symbol" />
+    </use>
+  </use>
+
 </svg>

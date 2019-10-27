@@ -1,21 +1,40 @@
 .background {
-  viewport-fill: white;
+  viewport-fill: black;
 }
 
-#demotext {
-  fill: black;
+text     {
   font-size: 32;
   font-family: System-Regular;
-  font-weight: bold;
-  text-anchor: middle;
-  text-length: 99;
+  font-weight: regular;
+  y: 12;
+  text-length: 32;
 }
 
-.num_field {
-  fill: black;
+
+textarea {
   font-size: 32;
   font-family: System-Regular;
-  font-weight: bold;
+  font-weight: regular;
+  y: 12;
+  text-length: 1024;
+}
+
+.item-header     { x: 0; y: 0; width: 100%; height: 25 }
+.item            { x: 0; y: 0; width: 100%; height: 33%; }
+.item-footer     { x: 0; y: 0; width: 100%; height: 20; }
+
+#tile-divider {
+  fill: grey;
+}
+
+.status {
   text-anchor: middle;
-  text-length: 99;
+  display-align: center;
+  x: 5%;
+  y: 5%;
+  width: 90%;
+  height: 90%;
+  text-length: 512;
+  font-size: 32;
+  fill: white;
 }
