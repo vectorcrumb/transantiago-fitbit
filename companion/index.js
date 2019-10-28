@@ -33,22 +33,16 @@ function sendLoadingMessage () {
 }
 
 function sendClosestStopSchedule(lati, long, rad) {
-    let transapi = new TransantiagoAPI();
-    console.log("Received a GPS update. Getting nearest stop.");
-    console.log(transapi);
-    transapi.findNearestStop(lati, long, rad).then(function (value) {
-        console.log("Succesful stops function call", value);
-    }).catch(function (e) {
-        console.log("Error in stops function call", e);
+    let transantiago_api = new TransantiagoAPI();
+    // console.log("Received a GPS update. Getting nearest stop.");
+    transantiago_api.findNearestStop(lati, long, rad).then(function (nearest_stop) {
+        console.log("Closest stop found is " + nearest_stop);
+        transantiago_api.findStopSchedule(nearest_stop).then(function(schedule) {
+            console.log("Obtained schedule: ", schedule);
+        }).catch(function(err) {
+            console.log("Error finding schedule for stop: " + err);
+        });
+    }).catch(function (err) {
+        console.log("Error finding closest stop: " + err);
     });
-    // transapi.findNearestStop(lat, lon).then(function (stop) {
-    //     console.log("Obtained nearest stop. Getting schedule.");
-    //     transapi.findBusesForStop(stop["stop_code"]).then(function (schedule) {
-    //         console.log("Obtained schedule: ", schedule);
-    //     }).catch(function (e) {
-    //         console.log("Error getting scedule for stop.", e);
-    //     });
-    // }).catch(function (e) {
-    //     console.log("Error getting nearest stop.", e);
-    // });
 }
