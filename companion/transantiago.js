@@ -72,6 +72,8 @@ TransantiagoAPI.prototype.findNearestStop = function(lat, lon, radius) {
                 stops.forEach( (stop) => {
                     stop.distance = greaterCircleDistanceApproximation(stop.stop_lat, stop.stop_lon, lat, lon);
                 });
+                // The API can access metro stations, so we should filter by bus (TS) or metro (M) in the agency_id field
+                stops = stops.filter( (stop) => { return stop.agency_id == "TS"; });
                 // Sort the stops by distance and show results
                 stops.sort( (a, b) => { return (a.distance - b.distance); });
                 console.log("Found " + stops.length + " stops. Stops ordered by distance are:")
